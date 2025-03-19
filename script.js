@@ -93,7 +93,13 @@ document.addEventListener("DOMContentLoaded", function () {
             case 12:
                 mostrarMensagem("Você esqueceu de testar! Tente novamente.", "red");
                 break;   
+
             case 11:
+                document.body.style.background = "radial-gradient(circle, rgba(255,223,0,1) 0%, rgba(255,255,129,1) 35%, rgba(255,255,182,1) 100%)";
+                const subtitulo = document.querySelector("#story");    // Remover o subtítulo
+                if (subtitulo) subtitulo.innerHTML = ""; // Remove o conteúdo do subtítulo
+                const titulo = document.querySelector("h1");// Alterar a cor do título principal (h1)
+                if (titulo) titulo.style.color = "black";
                 mostrarMensagem("Parabéns! Você trocou a lâmpada com sucesso!", "green");
                 break; 
                 }
