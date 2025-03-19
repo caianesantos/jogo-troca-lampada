@@ -26,10 +26,6 @@ body{
     gap: 2rem;
 }
 
-/* .hidden{
-    display: none;
-} */
-
 #msg{
     display: flex;
     flex-direction: column;
@@ -64,7 +60,3 @@ button:hover{
     color: white;
 }
 
-/* #trocar-acesa, #desligar-interruptor, #restart{
-    background-color: rgb(255, 255, 255);
-    margin-top: 20% 20%;
-} */

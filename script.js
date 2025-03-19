@@ -1,12 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const story = document.getElementById("story");
-    const choices = document.getElementById("choices");
-    const result = document.getElementById("result");
-    const $restart = document.getElementById("restart");
-    const btnTrocarAcesa = document.getElementById("trocar-acesa");
-    const btnDesligarInterruptor = document.getElementById("desligar-interruptor");
-    const text = document.getElementById("text")
-    // const text2 = document.querySelectorAll(".text")
+    const story = document.querySelector("#story");
+    const choices = document.querySelector("#choices");
+    const result = document.querySelector("#result");
+    const btnTrocarAcesa = document.querySelector("#trocar-acesa");
+    const btnDesligarInterruptor = document.querySelector("#desligar-interruptor");
 
     function showBtnRestart(){
         const $btnRestart = document.createElement("button");
@@ -52,34 +49,53 @@ document.addEventListener("DOMContentLoaded", function () {
                 break;
             case 2:
                 atualizarHistoria("Ótimo! Agora você pode remover a lâmpada queimada. O que fazer?", [
-                    { texto: "A) Remover a lâmpada com cuidado", proximo: 3 },
-                    { texto: "B) Usar um martelo para quebrar", proximo: 4 }
-                ]);
-                break;
-            case 3:
-                atualizarHistoria("Lâmpada removida com sucesso! Agora o que fazer?", [
-                    { texto: "A) Colocar a lâmpada nova", proximo: 5 },
-                    { texto: "B) Deixar sem lâmpada", proximo: 6 }
+                    { texto: "A) Pegar uma escada e subir", proximo: 3 },
+                    { texto: "B) Desenroscar a lâmpada", proximo: 4 }
                 ]);
                 break;
             case 4:
-                mostrarMensagem("Isso é perigoso! Você se machucou. Tente novamente.", "red");
+                mostrarMensagem("Você não alcança a lâmpada. Tente novamente.", "red");
                 break;
-            case 5:
-                atualizarHistoria("Lâmpada instalada! Agora o que fazer?", [
-                    { texto: "A) Ligar o interruptor para testar", proximo: 7 },
-                    { texto: "B) Sair da sala sem testar", proximo: 8 }
+            case 3:
+                atualizarHistoria("Você alcançou a lâmpada. O que fazer agora?", [
+                    { texto: "A) Remover a lâmpada com cuidado", proximo: 5 },
+                    { texto: "B) Usar um martelo para quebrar", proximo: 6 }
                 ]);
                 break;
             case 6:
+                mostrarMensagem("Isso é perigoso. Tente novamente.", "red");
+                break;
+            case 5:
+                atualizarHistoria("Ótimo! Lâmpada removida. O que fazer?", [
+                    { texto: "A) Colocar nova lâmpada", proximo: 7 },
+                    { texto: "B) Deixar sem lâmpada", proximo: 8 }
+                ]);
+                break;
+            case 8:
                 mostrarMensagem("A sala ficou escura! Você precisa de luz. Tente novamente.", "red");
                 break;
             case 7:
-                mostrarMensagem("Parabéns! Você trocou a lâmpada com sucesso!", "green");
-                break;
-            case 8:
+                atualizarHistoria("Ótimo! Pronto, e agora?. O que fazer?", [
+                    { texto: "A) Testar lâmpada", proximo: 9 },
+                    { texto: "B) Descer da escada", proximo: 10 }
+                ]);
+                break
+            case 9:
+                mostrarMensagem("Você caiu da escada! Tente novamente.", "red");
+                break; 
+            case 10:
+                atualizarHistoria("Você desceu em segurança, e agora?", [
+                    { texto: "A) Ligar o interruptor para testar", proximo: 11 },
+                    { texto: "B) Sair da sala sem testar", proximo: 12 }
+                ]);
+                break; 
+
+            case 12:
                 mostrarMensagem("Você esqueceu de testar! Tente novamente.", "red");
                 break;   
-        }
+            case 11:
+                mostrarMensagem("Parabéns! Você trocou a lâmpada com sucesso!", "green");
+                break; 
+                }
     }
 });
